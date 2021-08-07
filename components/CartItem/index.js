@@ -1,4 +1,5 @@
 import Quantity from "./../Quantity";
+import Currency from "../Currency";
 import {
   decreaseQuantity,
   deleteCartItem,
@@ -10,7 +11,7 @@ const CartItem = ({ product }) => {
   const { title, quantity, uuid, list_price, short_desc } = product;
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row space-x-2 items-center justify-around p-6 mt-6 border shadow-lg rounded-xl hover:bg-gray-100 focus:text-blue-600">
+    <div className="flex flex-row space-x-2 items-center justify-around p-6 mt-6 border shadow-lg rounded-xl hover:shadow-xl">
       <img
         src="http://lorempixel.com/75/75/food"
         alt="food"
@@ -25,12 +26,16 @@ const CartItem = ({ product }) => {
         quantity={product.quantity}
         clickIncrement={() => dispatch(increaseQuantity(product))}
       ></Quantity>
-      <p>{`$ ${(quantity * list_price) / 100}`}</p>
+      <Currency value={quantity * list_price} />
+      {/* <p className="font-semibold">
+        <sup>$</sup>&nbsp;
+        {`${(quantity * list_price) / 100}`}
+      </p> */}
       <button
         className="bg-white"
         onClick={() => dispatch(deleteCartItem(uuid))}
       >
-        &larr;
+        x
       </button>
     </div>
   );

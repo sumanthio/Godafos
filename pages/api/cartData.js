@@ -7,7 +7,7 @@ const cartDataFromDB = [
     short_desc: "Short desc",
     long_desc: "Long desc",
     quantity: 1,
-    list_price: 4000,
+    list_price: 4350,
   },
   {
     uuid: "2",
@@ -15,7 +15,7 @@ const cartDataFromDB = [
     short_desc: "Short desc",
     long_desc: "Long desc",
     quantity: 1,
-    list_price: 4000,
+    list_price: 2990,
   },
   {
     uuid: "3",
@@ -23,7 +23,7 @@ const cartDataFromDB = [
     short_desc: "Short desc",
     long_desc: "Long desc",
     quantity: 1,
-    list_price: 4000,
+    list_price: 3799,
   },
 ];
 

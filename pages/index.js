@@ -33,24 +33,24 @@ export default function Home() {
     );
 
   return (
-    <div className="min-h-screen py-2">
+    <div className="min-h-screen bg-gradient-to-b from-gray-top from-gray-bottom py-10">
       <Head>
-        <title>GODAFOS - Shopping Cart</title>
+        <title>Godafos - Shopping Cart</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-row space-x-10 items-center w-full px-20 bg-gradient-to-b from-gray-top from-gray-bottom">
+      <main className="flex flex-row space-x-10 items-start w-full px-32">
         <div className="flex-1 mt-6">
           <h1 className="text-3xl font-bold">Shopping Cart</h1>
-          <div className="mt-3 ">
+          <div className="mt-3">
             {cartItems.length > 0 &&
               cartItems.map((product, index) => (
                 <CartItem product={product} key={index} />
               ))}
             {cartItems.length == 0 && <div>No Items in your cart</div>}
           </div>
-          <div className="flex flex-row items-stretch justify-between space-x-10">
-            <h3 className="text-2xl text-blue-600 font-semibold py-2">
+          <div className="flex flex-row items-stretch justify-between mt-10">
+            <h3 className="text-2xl text-blue-600 font-semibold">
               &larr; Continue Shopping
             </h3>
             <h3 className="text-2xl font-bold">
@@ -58,9 +58,7 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="bg-gray-800 min-h-full">
-          <Card />
-        </div>
+        <Card />
       </main>
     </div>
   );

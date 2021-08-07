@@ -8,6 +8,8 @@ module.exports = {
         gray: {
           bottom: "#f1f4f5",
           top: "#f6f6f6",
+          card: "#8e8e97",
+          darkb: "#313438",
         },
       },
     },

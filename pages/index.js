@@ -44,19 +44,19 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-row space-x-10 items-start justify-stretch w-full px-32 min-h-full">
-        {loading && (
-          <div className="flex-1 items-center min-h-full">loading...</div>
-        )}
         <div className="flex-1 items-stretch justify-stretch">
           <h1 className="text-3xl font-bold mt-10">Shopping Cart</h1>
           <div className="mt-4">
+            {loading && (
+              <div className="flex-1 items-stretch justify-stretch">
+                loading...
+              </div>
+            )}
             {cartItems.length > 0 &&
               cartItems.map((product, index) => (
                 <CartItem product={product} key={index} />
               ))}
-            {cartItems.length == 0 && (
-              <div className="mx-8 h-24">No Items in your cart</div>
-            )}
+            {cartItems.length == 0 && <div className="mx-8 h-24">loading</div>}
           </div>
           <div className="flex flex-row items-stretch justify-between mt-10">
             <h3 className="text-2xl text-blue-600 font-semibold">

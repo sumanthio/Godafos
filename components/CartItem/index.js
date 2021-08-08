@@ -11,7 +11,7 @@ const CartItem = ({ product }) => {
   const { title, quantity, uuid, list_price, short_desc } = product;
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row space-x-2 items-center justify-between py-6 mt-6 border-b-2 border-gray-200 hover:border-b-4">
+    <div className="flex flex-row space-x-2 items-center justify-between py-6 px-8 pr-10 mt-6 border-b-2 border-gray-200 hover:border-b-4">
       <img
         src="http://lorempixel.com/75/75/food"
         alt="food"

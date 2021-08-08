@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../components/CartItem";
 import Card from "../components/Card";
@@ -7,15 +7,19 @@ import Currency from "../components/Currency";
 import { setCartItems } from "../components/CartItem/cartSlice";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const fetchCartItems = async () => {
+    setLoading(true);
     try {
       const res = await fetch("api/cartData");
       const data = await res.json();
+      setLoading(false);
       dispatch(setCartItems(data));
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -39,15 +43,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-row space-x-10 items-start w-full px-32">
-        <div className="flex-1 mt-6">
-          <h1 className="text-3xl font-bold">Shopping Cart</h1>
-          <div className="mt-3">
+      <main className="flex flex-row space-x-10 items-start justify-stretch w-full px-32 min-h-full">
+        {loading && (
+          <div className="flex-1 items-center min-h-full">loading...</div>
+        )}
+        <div className="flex-1 items-stretch justify-stretch">
+          <h1 className="text-3xl font-bold mt-10">Shopping Cart</h1>
+          <div className="mt-4">
             {cartItems.length > 0 &&
               cartItems.map((product, index) => (
                 <CartItem product={product} key={index} />
               ))}
-            {cartItems.length == 0 && <div>No Items in your cart</div>}
+            {cartItems.length == 0 && (
+              <div className="mx-8 h-24">No Items in your cart</div>
+            )}
           </div>
           <div className="flex flex-row items-stretch justify-between mt-10">
             <h3 className="text-2xl text-blue-600 font-semibold">

@@ -20,3 +20,4 @@ Preview the application live on [Vercel](https://godafos.vercel.app/)
 ## TODOs
 
 - Responsiveness with a different UX on mobile
+- State loading via `useState`
